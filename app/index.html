@@ -1,5 +1,6 @@
-<!DOCTYPE htmlngapp="ngsocial">
-<html lang="en"htmlngapp="ngsocial">
+<!DOCTYPE htmlngapp=" ngsocial">
+<html lang="en" ng-app="ngsocial">
+
 <head>
 	<meta charset="UTF-8">
 	<title>myangularsocialapp</title>
@@ -8,17 +9,6 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
 <body>
-
-<script src="js/angular.min.js"></script>
-<script src="js/angular-route.min.js"></script>
-<script src="js/ngFacebook.js"></script>
-<script src="app.js"></script>
-<script src="../facebook/facebook.js"></script>
-
-
-
-
-</body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
 		<div class="navbar-header">
@@ -36,12 +26,20 @@
 				<li><a href="#about">About</a></li>
 				<li><a href="#facebook">facebook</a></li>
 			</ul>
-	</div><!--/.nav-collapse -->
+		</div>
+		<!--/.nav-collapse -->
 	</div>
 </nav>
 <div class="container">
 	<div ng-view></div>
-
-
 </div>
+<script src="js/angular.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/ngFacebook.js"></script>
+<script src="app.js"></script>
+<script src="../facebook/facebook.js"></script>
+
+</body>
+
+
 </html>

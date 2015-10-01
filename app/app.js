@@ -3,36 +3,22 @@
  */
 
 
-
-
 var ngsocial = angular.module('ngsocial', [
 	'ngRoute',
-	'ngFacebook',
-	'ngsocial.facebook'
+	'ngFacebook'
 ]);
 
-ngsocial.config(function($routeProvider) {
+ngsocial.config(function ($routeProvider) {
 	$routeProvider
 		.when('/facebook', {
-			templateUrl: 'facebook/facebook.html',
+			templateUrl: '../facebook/facebook.html',
 			controller: 'facebookController'
 		})
-		when('/about', {
-			templateUrl: 'about/about.html',
+		.when('/about', {
+			templateUrl: '../about/about.html',
 			controller: 'ShowOrdersController'
 		})
 		.otherwise({
 			redirectTo: '/facebook'
 		});
 });
-
-
-
-
-
-
-
-
-
-
-
