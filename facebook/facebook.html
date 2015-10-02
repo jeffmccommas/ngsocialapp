@@ -30,7 +30,7 @@
 			</ul>
 
 
-			<<div ng-if="isLoggedIn == false">
+			<div ng-if="isLoggedIn == false">
 			<button type="button" class="btn btn-default" ng-click="login()">Log in</button>
 		</div>
 			<div ng-if="isLoggedIn == true">
@@ -60,6 +60,8 @@
 						<a href="{{post.link}}"><img ng-src="{{post.picture}}"></a>
 						<div class="sttime">{{post.created_time | date:'short'}}</div>
 					</div>
+					<div ng-if="isLoggedIn == false">
+						<p>you need to login to post</p>
 				</div>
 			</div>
 		</div>
