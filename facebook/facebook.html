@@ -5,19 +5,20 @@
 <div class="row">
 	<div class="col md4">
 
-		<div class="well">
+		<div <div ng-if="isLoggedIn == true" class="well">
 			<h4>user info</h4>
-			<h3>please login</h3>
+			<h3>{{welcomeMessage}}</h3>
 
 			<ul>
-				<li>id som id</li>
-				<li>first name</li>
-				<li>last name</li>
-				<li>email</li>
-				<li>gender</li>
+				<li>ID: {{user.id}}</li>
+				<li>First Name: {{user.first_name}}</li>
+				<li>Last Name: {{user.last_name}}</li>
+				<li>Email: {{user.email}}</li>
+				<li>Gender: {{user.gender}}</li>
+				<li>Location: {{user.locale}}</li>
 		</div>
 
-		<div class="well">
+		<div <div ng-if="isLoggedIn == true" class="well">
 			<h4>permissions</h4>
 
 			<ul>
@@ -29,15 +30,40 @@
 			</ul>
 
 
-			<button type="button" class="btn btn-default">login</button>
-			<div class="col md8">
-				<h3>welcometo facebook</h3>
-				<div class="form-group">
-					<label for="statusupdate">statusupdate</label>
-					<textarea name="statusupdate" id="statusupdate" class="formcontrol" cols="30" rows="10"></textarea>
-					<button type="submit" class="btn-primary">submit</button>
+			<<div ng-if="isLoggedIn == false">
+			<button type="button" class="btn btn-default" ng-click="login()">Log in</button>
+		</div>
+			<div ng-if="isLoggedIn == true">
+				<button type="button" class="btn btn-default" ng-click="logout()">Log out</button>
+			</div>
+			<div ng-if="isLoggedIn == undefined">
+				<button type="button" class="btn btn-default" ng-click="login()"  >Log in</button>
+			</div>
+			</div>
+		<div class="col-md-8">
+			<h3>Welcome to Facebook!</h3>
+			<div ng-if="isLoggedIn == true">
+				<form ng-submit="postStatus()">
+					<div class="form-group">
+						<label>Status Update</label>
+						<textarea ng-model="body" class="form-control"></textarea>
+					</div>
+					<button type="submit" class="btn primary">Submit</button>
+				</form>
+				<br><br>
+				<div ng-repeat="post in fullPosts" class="stbody">
+					<div class="stimg">
+						<img ng-src="{{picture}}">
+					</div>
+					<div class="sttext">
+						{{post.message}}
+						<a href="{{post.link}}"><img ng-src="{{post.picture}}"></a>
+						<div class="sttime">{{post.created_time | date:'short'}}</div>
+					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 		</div>
 
 </body>
